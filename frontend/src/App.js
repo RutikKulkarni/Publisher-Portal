@@ -1,21 +1,19 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ContentForm from './components/ContentForm';
+import HomeScreen from './components/HomeScreen';
+import Checkout from './components/Checkout';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/add-content" element={<ContentForm />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
